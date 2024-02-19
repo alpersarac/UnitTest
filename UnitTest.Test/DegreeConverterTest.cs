@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using System.Collections;
 
 namespace UnitTest.Test
 {
@@ -19,18 +20,37 @@ namespace UnitTest.Test
         [Test]
         public void ToFahrenheit_ZeroCelcius_Return32()
         {
-            var converter = new DegreeConverter();
-            double result = converter.ToFahrenheit(0);
+            double result = _degreeConverter.ToFahrenheit(0);
 
             Assert.That(result, Is.EqualTo(32));
         }
         [Test]
         public void ToCelcius_1Fahreneit_Return0()
         {
-            var converter = new DegreeConverter();
-            double result = converter.ToCelcius(1);
+            double result = _degreeConverter.ToCelcius(1);
 
             Assert.That(result,Is.EqualTo(0));
+        }
+        [TestCase(1,0)]
+        public void ToCelcius_Fahreneit_With_Params(double value, double expectedValue)
+        {
+            double result = _degreeConverter.ToCelcius(value);
+
+            Assert.That(result, Is.EqualTo(expectedValue));
+        }
+        [TestCaseSource(typeof(DegreeConverterSource))]
+        public void ToCelcius_Fahreneit_With_TestCase(double value, double expectedValue)
+        {
+            double result = _degreeConverter.ToCelcius(value);
+
+            Assert.That(result, Is.EqualTo(expectedValue));
+        }
+        public class DegreeConverterSource : IEnumerable
+        {
+            public IEnumerator GetEnumerator()
+            {
+                yield return new double[] { 1, 0 };
+            }
         }
     }
 }
