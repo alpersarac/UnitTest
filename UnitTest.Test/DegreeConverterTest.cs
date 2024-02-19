@@ -17,6 +17,7 @@ namespace UnitTest.Test
         {
             _degreeConverter = null;
         }
+        [Category("Slow")]
         [Test]
         public void ToFahrenheit_ZeroCelcius_Return32()
         {
@@ -24,6 +25,7 @@ namespace UnitTest.Test
 
             Assert.That(result, Is.EqualTo(32));
         }
+        [Category("Slow")]
         [Test]
         public void ToCelcius_1Fahreneit_Return0()
         {
@@ -32,6 +34,7 @@ namespace UnitTest.Test
             Assert.That(result,Is.EqualTo(0));
         }
         //passing multiple saces with TestCase Attribute
+        [Category("Slow")]
         [TestCase(1,0)]
         public void ToCelcius_Fahreneit_With_Params(double value, double expectedValue)
         {
@@ -40,6 +43,8 @@ namespace UnitTest.Test
             Assert.That(result, Is.EqualTo(expectedValue));
         }
         // passing multiple cases with IEnumrable
+        [Category("Slow")]
+        [Ignore("Redundant")]
         [TestCaseSource(typeof(DegreeConverterSource))]
         public void ToCelcius_Fahreneit_With_TestCase(double value, double expectedValue)
         {
