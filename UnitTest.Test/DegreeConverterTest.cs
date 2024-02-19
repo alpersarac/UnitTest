@@ -31,6 +31,7 @@ namespace UnitTest.Test
 
             Assert.That(result,Is.EqualTo(0));
         }
+        //passing multiple saces with TestCase Attribute
         [TestCase(1,0)]
         public void ToCelcius_Fahreneit_With_Params(double value, double expectedValue)
         {
@@ -38,6 +39,7 @@ namespace UnitTest.Test
 
             Assert.That(result, Is.EqualTo(expectedValue));
         }
+        // passing multiple cases with IEnumrable
         [TestCaseSource(typeof(DegreeConverterSource))]
         public void ToCelcius_Fahreneit_With_TestCase(double value, double expectedValue)
         {
