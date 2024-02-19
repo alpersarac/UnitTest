@@ -5,6 +5,17 @@ namespace UnitTest.Test
     [TestFixture]
     public class DegreeConverterTest
     {
+        private DegreeConverter _degreeConverter;
+        [SetUp]
+        public void Setup()
+        {
+            _degreeConverter = new DegreeConverter();
+        }
+        [TearDown]
+        public void Teardown()
+        {
+            _degreeConverter = null;
+        }
         [Test]
         public void ToFahrenheit_ZeroCelcius_Return32()
         {
