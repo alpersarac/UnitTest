@@ -21,23 +21,13 @@ namespace UnitTest.Test
         {
             fizzBuzz = null;
         }
-        [Test]
-        public void FizzBuzzTest_Returns_FizzBuzz()
+        [TestCase("Fizz",3)]
+        [TestCase("Buzz", 5)]
+        [TestCase("FizzBuzz", 15)]
+        public void FizzBuzzTest_Returns_FizzBuzz(string expected, int number)
         {
-            var result = FizzBuzz.Ask(15);
-            Assert.That(result, Is.EqualTo("FizzBuzz"));
+            Assert.That(FizzBuzz.Ask(number), Is.EqualTo(expected));
         }
-        [Test]
-        public void FizzBuzzTest_Returns_Buzz()
-        {
-            var result = FizzBuzz.Ask(5);
-            Assert.That(result, Is.EqualTo("Buzz"));
-        }
-        [Test]
-        public void FizzBuzzTest_Returns_Fizz()
-        {
-            var result = FizzBuzz.Ask(3);
-            Assert.That(result, Is.EqualTo("Fizz"));
-        }
+       
     }
 }
