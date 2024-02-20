@@ -24,6 +24,7 @@ namespace UnitTest.Test
         [TestCase("Fizz",3)]
         [TestCase("Buzz", 5)]
         [TestCase("FizzBuzz", 15)]
+        [TestCase("", 7)]
         public void FizzBuzzTest_Returns_FizzBuzz(string expected, int number)
         {
             Assert.That(FizzBuzz.Ask(number), Is.EqualTo(expected));
